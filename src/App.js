@@ -8,23 +8,23 @@ import * as BooksAPI from './BooksAPI'
 class BooksApp extends React.Component {
   state = {
     books: []
-}
+  }
   componentDidMount() {
     BooksAPI.getAll().then((books) => { this.setState({ books }) })
-}
+  }
 
-updateBookShelf = (book, shelf) => {
+  updateBookShelf = (book, shelf) => {
     console.log(book);
-    BooksAPI.update(book, shelf).then(() => {          
+    BooksAPI.update(book, shelf).then(() => {
       this.setState((state) => ({
         books: state.books.map((b) => (this.updateBookShelfState(b, book, shelf)))
       }))
     })
   }
-
+  
   updateBookShelfState = (b, book, shelf) => {
-    if(b.id === book.id) 
-        b.shelf = shelf
+    if (b.id === book.id)
+      b.shelf = shelf
     return b
   }
 
