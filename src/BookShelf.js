@@ -28,7 +28,7 @@ class BookShelf extends React.Component {
                                             title={book.title}
                                             imageLinks={book.imageLinks}
                                             updateBookShelf={this.props.updateBookShelf}
-                                            book={this.props.book}
+                                            book={book}
                                         />
                                     ))
                                     }
