@@ -12,9 +12,9 @@ class Main extends React.Component {
                     <div className="list-books-title">
                         <h1>MyReads</h1>
                     </div>
-                    <BookShelf books={this.props.books} name="Currently Reading" filterBy="currentlyReading"  updateBookShelf={this.props.updateBookShelf} />
-                    <BookShelf books={this.props.books} name="Want to Read" filterBy="wantToRead" updateBookShelf={this.props.updateBookShelf}/>
-                    <BookShelf books={this.props.books} name="Read" filterBy="read" updateBookShelf={this.props.updateBookShelf}/>
+                    <BookShelf books={this.props.books} name="Currently Reading" filterBy="currentlyReading" updateBookShelf={this.props.updateBookShelf} />
+                    <BookShelf books={this.props.books} name="Want to Read" filterBy="wantToRead" updateBookShelf={this.props.updateBookShelf} />
+                    <BookShelf books={this.props.books} name="Read" filterBy="read" updateBookShelf={this.props.updateBookShelf} />
                 </div>
             </div>
         )

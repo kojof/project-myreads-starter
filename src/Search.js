@@ -15,30 +15,18 @@ class Search extends React.Component {
 
         this.setState({ query: query.trim() })
 
-        if (query.trim()  === '') return
+        if (query.trim() === '') return
 
         let showingBooks;
 
         if (this.state.query) {
-            BooksAPI.search(query).then((response) => {               
-                showingBooks = response.map((book) => {
-                    return {
-                        id: book.id,
-                        shelf: book.shelf,
-                        authors: book.authors,
-                        title: book.title,
-                        // imageLinks: {
-                        //    thumbnail: book.imageLinks.thumbnail
-                        // }
-                    }
-                })
-                this.setState({ showingBooks })                
+            BooksAPI.search(query).then((response) => {
+
+                if (!response || response.error) return
+                this.setState({ showingBooks: response })
             })
         }
     }
-
-
-
 
     render() {
         return (
@@ -58,10 +46,9 @@ class Search extends React.Component {
                                 shelf={book.shelf}
                                 authors={book.authors}
                                 title={book.title}
-                                //      imageLinks={book.imageLinks}
-                                updateBookShelf={this.state.updateBookShelf}
+                                imageLinks={book.imageLinks}
+                                updateBookShelf={this.props.updateBookShelf}
                                 book={book}
-                                
                             />
                         ))}
                     </ol>
