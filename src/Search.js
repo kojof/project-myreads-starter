@@ -21,7 +21,13 @@ class Search extends React.Component {
         if (this.state.query) {
             BooksAPI.search(query).then((response) => {
                 if (!response || response.error) return
-                this.setState({ books: response })
+
+                this.setState({
+                    books: response.map(book => {
+                        book.shelf = 'none'
+                        return book
+                    })
+                })
             })
         }
     }

@@ -8,8 +8,6 @@ class BookShelf extends React.Component {
     render() {
 
         const { books, name, filterBy } = this.props;
-        let showingBooks;
-      //  showingBooks = books;
 
         return (
             <div>
