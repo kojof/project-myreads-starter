@@ -8,7 +8,7 @@ import Book from './Book'
 class Search extends React.Component {
     state = {
         query: '',
-        books: []
+        //books: []
     }
 
     updateQuery = (query) => {
@@ -16,13 +16,12 @@ class Search extends React.Component {
     }
 
     render() {
-      
+
         //const { books } = this.props
         const { query } = this.state
 
         let showingBooks;
-
-        // console.log(this.state.query)
+      
         if (this.state.query) {
             BooksAPI.search(query).then((response) => {
                 showingBooks = response.map((book) => {
@@ -32,39 +31,40 @@ class Search extends React.Component {
                         authors: book.authors,
                         title: book.title,
                         imageLinks: {
-                        thumbnail: book.imageLinks.thumbnail }
+                            thumbnail: book.imageLinks.thumbnail
+                        }
                     }
                 })
-            //    this.setState({ books })
+                    this.setState({ showingBooks })
                 console.log(showingBooks)
             })
         }
-              
+
 
         return (
-                <div className="search-books">
+            <div className="search-books">
 
-                    <div className="search-books-bar">
-                        <Link to="/" className="close-search">Close</Link>
-                        <div className="search-books-input-wrapper">
-                            <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={(event) => this.updateQuery(event.target.value)} />
-                        </div>
+                <div className="search-books-bar">
+                    <Link to="/" className="close-search">Close</Link>
+                    <div className="search-books-input-wrapper">
+                        <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={(event) => this.updateQuery(event.target.value)} />
                     </div>
-                    <div className="search-books-results">
-                        <ol className="books-grid">
+                </div>
+                <div className="search-books-results">
+                    <ol className="books-grid">
                         {showingBooks.map((book) => (
                             <Book
-                            id={ book.id }
-                            shelf={ book.shelf }
-                            authors={ book.authors }
-                            title={ book.title }
-                            imageLinks={ book.imageLinks }
+                                id={book.id}
+                                shelf={book.shelf}
+                                authors={book.authors}
+                                title={book.title}
+                                imageLinks={book.imageLinks}
                             />
-                          ))}
-                        </ol>
-                    </div>
-                </div>)
-        }
+                        ))}
+                    </ol>
+                </div>
+            </div>)
     }
+}
 
-    export default Search
+export default Search
