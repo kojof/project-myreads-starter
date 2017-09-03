@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
-import Main from './Main'
-import Search from './Search'
+import Main from './main'
+import Search from './search'
 import * as BooksAPI from './BooksAPI'
 
 class BooksApp extends React.Component {
@@ -15,8 +15,7 @@ class BooksApp extends React.Component {
 
   updateBookShelf = (book, shelf) => {
 
-    BooksAPI.update(book, shelf).then(() => {
-      // update book shelf
+    BooksAPI.update(book, shelf).then(() => {     
       book.shelf = shelf
       this.setState((state) => ({
         books: state.books.filter(b => b.id !== book.id).concat([book])

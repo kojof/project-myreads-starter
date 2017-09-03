@@ -2,28 +2,26 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 import './App.css'
-import Book from './Book'
+import Book from './book'
 
 
 class Search extends React.Component {
     state = {
         query: '',
-        showingBooks: []
+        books: []
     }
 
     searchBooks = (query) => {
-
-        this.setState({ query: query.trim() })
-
         if (query.trim() === '') return
 
-        let showingBooks;
+        this.setState({ query: query.trim() })      
+
+        let books;
 
         if (this.state.query) {
             BooksAPI.search(query).then((response) => {
-
                 if (!response || response.error) return
-                this.setState({ showingBooks: response })
+                this.setState({ books: response })
             })
         }
     }
@@ -31,7 +29,6 @@ class Search extends React.Component {
     render() {
         return (
             <div className="search-books">
-
                 <div className="search-books-bar">
                     <Link to="/" className="close-search">Close</Link>
                     <div className="search-books-input-wrapper">
@@ -40,12 +37,14 @@ class Search extends React.Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {this.state.showingBooks.map((book) => (
+                        {this.state.books.map((book) => (
                             <Book
                                 id={book.id}
                                 shelf={book.shelf}
                                 authors={book.authors}
                                 title={book.title}
+                                imageLinks = { book.imageLinks  &&  book.imageLinks.thumbnail ?  book.imageLinks: 'https://books.google.ca/googlebooks/images/no_cover_thumb.gif'}                               
+                                   
                                 imageLinks={book.imageLinks}
                                 updateBookShelf={this.props.updateBookShelf}
                                 book={book}

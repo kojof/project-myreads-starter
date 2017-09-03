@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import BookShelf from './BookShelf'
+import BookShelf from './bookshelf'
 
 class Book extends React.Component {
     render() {
