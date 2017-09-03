@@ -4,6 +4,7 @@ import BookShelf from './bookshelf'
 
 class Book extends React.Component {
     render() {
+               
         const { id, title, authors, imageLinks, shelf, book, updateBookShelf } = this.props
 
         return (<li key={id}>

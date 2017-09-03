@@ -14,7 +14,7 @@ class Search extends React.Component {
     searchBooks = (query) => {
         if (query.trim() === '') return
 
-        this.setState({ query: query.trim() })      
+        this.setState({ query: query.trim() })
 
         let books;
 
@@ -43,8 +43,6 @@ class Search extends React.Component {
                                 shelf={book.shelf}
                                 authors={book.authors}
                                 title={book.title}
-                                imageLinks = { book.imageLinks  &&  book.imageLinks.thumbnail ?  book.imageLinks: 'https://books.google.ca/googlebooks/images/no_cover_thumb.gif'}                               
-                                   
                                 imageLinks={book.imageLinks}
                                 updateBookShelf={this.props.updateBookShelf}
                                 book={book}
