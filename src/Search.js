@@ -12,22 +12,37 @@ class Search extends React.Component {
     }
 
     searchBooks = (query) => {
-        if (query.trim() === '') return
 
-        this.setState({ query: query.trim() })      
+        this.setState({ query: query.trim() })
 
-        if (this.state.query) {
+        if (query.trim() !== '') {
             BooksAPI.search(query).then((response) => {
                 if (!response || response.error) return
 
-                this.setState({
-                    books: response.map(book => {
-                        book.shelf = 'none'
-                        return book
+                if (response.length > 0) {
+                    this.setState({
+                        books: response.map(book => {
+                            book.shelf = this.setShelf(book.id)
+                            return book
+                        })
                     })
-                })
+                }
             })
         }
+        else {
+            this.setState({
+                books: []
+            })
+        }
+    }
+
+    setShelf = (id) => {
+        var shelf = 'none';
+        this.props.books.forEach((book) => {
+            if (book.id === id)
+                shelf = book.shelf;
+        });
+        return shelf;
     }
 
     render() {
