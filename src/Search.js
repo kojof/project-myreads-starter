@@ -2,7 +2,7 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 import './App.css'
-import Book from './book'
+import Book from './Book'
 
 
 class Search extends React.Component {
@@ -14,9 +14,7 @@ class Search extends React.Component {
     searchBooks = (query) => {
         if (query.trim() === '') return
 
-        this.setState({ query: query.trim() })
-
-        let books;
+        this.setState({ query: query.trim() })      
 
         if (this.state.query) {
             BooksAPI.search(query).then((response) => {
@@ -44,7 +42,7 @@ class Search extends React.Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {this.state.books.map((book) => (
-                            <Book
+                            <Book key={book.id}
                                 id={book.id}
                                 shelf={book.shelf}
                                 authors={book.authors}

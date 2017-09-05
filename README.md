@@ -1,6 +1,5 @@
-This is the starter template for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com). The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+Book Lending Application using React. The application was created with create-react-app and requires only npm install and npm start to get it installed and launched.
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
 ## What You're Getting
 ```
@@ -17,6 +16,10 @@ Of course, you are free to start this project from scratch if you wish! Just be 
  |-- App.test.js - Used for testing. Provided with Create React App. 
  Testing is encouraged, but not required.
  |-- BooksAPI.js - A JavaScript API for the provided Udacity backend. 
+ |-- Book.js - Renders a Book Item
+ |-- BookShelf.js - Contains the main business logic to render a book
+ |-- Main.js   - Displays a list of books under different shelves
+ |-- Search.js - Allows the user to search for books
  Instructions for the methods are below.
  |-- index.js - You should not need to modify this file. It is used for DOM rendering only.
  |-- index.css - Global styles. You probably won't need to change anything here.
@@ -57,9 +60,16 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+## search terms
+* For the purposes of this project, this is the whitelisted short collection of available search terms to be used with this project
+'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
+
+
 ## Contributing
 
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 # project-myreads-starter
+
+

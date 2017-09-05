@@ -1,6 +1,5 @@
 import React from 'react'
-import BookShelf from './bookshelf'
-import BookApp from './App'
+import BookShelf from './BookShelf'
 import './App.css'
 
 class Main extends React.Component {

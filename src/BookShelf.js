@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import { Link } from 'react-router-dom'
-import Book from './book'
+import Book from './Book'
 
 class BookShelf extends React.Component {
 
@@ -19,7 +19,7 @@ class BookShelf extends React.Component {
                                 <ol className="books-grid">
 
                                     {books.filter(book => book.shelf === filterBy).map((book) => (
-                                        <Book
+                                        <Book key={book.id}
                                             id={book.id}
                                             shelf={book.shelf}
                                             authors={book.authors}
