@@ -13,7 +13,7 @@ class Book extends React.Component {
                     <div className="book-cover" style={{  backgroundImage: `url(${imageLinks && imageLinks.thumbnail})` }}></div>
                     <div className="book-shelf-changer">
                         <select className='form-control' value={this.props.shelf} onChange={(event) => updateBookShelf(book, event.target.value)} >
-                            <option value="disabled" disabled>Move to...</option>
+                            <option value="none" disabled>Move to...</option>
                             <option value="currentlyReading">Currently Reading</option>
                             <option value="wantToRead">Want to Read</option>
                             <option value="read">Read</option>
