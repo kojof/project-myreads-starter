@@ -2,8 +2,9 @@
 
 ## Setup
 
-Run npm install
-Run npm start
+* Run npm install
+
+  Run npm start
 
 ## What You're Getting
 ```
